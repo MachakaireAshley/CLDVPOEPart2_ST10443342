@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "Event Manager";
+}
+
+<style>
+    /* Modern cloud-themed styling */
+    :root {
+        --sky-blue: #87CEEB;
+        --deep-blue: #1E90FF;
+        --white: #FFFFFF;
+        --light-gray: #F5F5F5;
+    }
+
+    .welcome-page {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, var(--sky-blue), var(--deep-blue));
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: var(--white);
+    }
+
+    .welcome-container {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 600px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .welcome-title {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .nav-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .nav-btn {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: var(--deep-blue);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        display: block;
+    }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background-color: var(--white);
+        }
+
+    @@keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+</style>
+
+<div class="welcome-page">
+    <div class="welcome-container">
+ 
+        <h1 class="welcome-title">Welcome to the Event Manager!</h1>
+
+        <div class="nav-buttons">
+            <a asp-controller="Events" asp-action="Index" class="nav-btn">
+                <i class="fas fa-calendar-alt"></i> Events
+            </a>
+            <a asp-controller="Venues" asp-action="Index" class="nav-btn">
+                <i class="fas fa-map-marker-alt"></i> Venues
+            </a>
+            <a asp-controller="Bookings" asp-action="Index" class="nav-btn">
+                <i class="fas fa-bookmark"></i> Bookings
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+}

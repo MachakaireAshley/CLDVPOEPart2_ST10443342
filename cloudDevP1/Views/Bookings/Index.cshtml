@@ -1,0 +1,55 @@
+﻿@model IEnumerable<cloudDevP1.Models.Booking>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-action="Index" method="get">
+<div class="form-group">
+    <input type="text" name="searchString" class="form-control" placeholder="Search Booking"
+</div>
+<button type="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Event.EventName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BookingsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BookingsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BookingsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

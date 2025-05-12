@@ -8,8 +8,8 @@ namespace cloudDevP1.Models
     {
         [Key]
         public int VenueId { get; set; }
-        public string? VenueName { get; set; }
-        public string? Location { get; set; }
+        public string VenueName { get; set; }
+        public string Location { get; set; }
 
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Capacity must be greater than 0")]
